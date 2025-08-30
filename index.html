@@ -554,7 +554,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            grid-auto-rows: 400px;
+            grid-auto-rows: minmax(420px, auto);
         }
         
         .portfolio-item {
@@ -565,6 +565,8 @@
             transition: all 0.4s ease;
             cursor: pointer;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
         }
         
         .portfolio-item:hover {
@@ -581,10 +583,12 @@
         
         .portfolio-thumbnail {
             width: 100%;
-            height: 65%;
+            height: 250px;
+            min-height: 250px;
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, #f5f7fa, #ffffff);
+            flex-shrink: 0;
         }
         
         .portfolio-thumbnail img {
@@ -644,18 +648,19 @@
         
         .portfolio-content {
             padding: 25px 30px;
-            height: 35%;
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            min-height: 170px;
         }
         
         .portfolio-content h3 {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 700;
             margin-bottom: 10px;
             color: #2d3436;
-            line-height: 1.3;
+            line-height: 1.4;
         }
         
         .portfolio-content p {
@@ -663,16 +668,14 @@
             color: #636e72;
             line-height: 1.6;
             margin-bottom: 15px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            flex-grow: 1;
         }
         
         .portfolio-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-top: auto;
         }
         
         .tag {
@@ -952,10 +955,7 @@
             <!-- Featured Project 1 - Escape Room -->
             <div class="portfolio-item featured">
                 <div class="portfolio-thumbnail">
-                    <img src="https://via.placeholder.com/800x400/667eea/ffffff?text=Escape+Room+Learning" alt="Escape Room Learning">
-                    <div class="play-overlay">
-                        <div class="play-icon"></div>
-                    </div>
+                    <iframe src="https://www.youtube.com/embed/jLOUDu5gbuE" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="portfolio-content">
                     <h3>Escape Room: Hacker Takeover</h3>
@@ -971,7 +971,7 @@
             <!-- Project 2 - Grumpy Cat App -->
             <div class="portfolio-item">
                 <div class="portfolio-thumbnail">
-                    <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756581397/44893a_eb2b4fa1884540a9a385599b68abbae6_mv2_iiclpd.avif" alt="Grumpy Cat Stickers App">
+                    <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756585609/GrumpyKatWebsite_x1xqzq.png" alt="Grumpy Cat Stickers App">
                 </div>
                 <div class="portfolio-content">
                     <h3>iOS App: Grumpy Cat Stickers</h3>
@@ -986,7 +986,7 @@
             <!-- Project 3 - Measurement System -->
             <div class="portfolio-item">
                 <div class="portfolio-thumbnail">
-                    <img src="https://via.placeholder.com/400x400/4facfe/ffffff?text=Analytics+Platform" alt="Analytics Dashboard">
+                    <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756585923/44893a_1ce3029f327a4748a393d65f362c96df_mv2_rfdbh8.png" alt="Training Analytics Dashboard">
                 </div>
                 <div class="portfolio-content">
                     <h3>Training Analytics Platform</h3>
@@ -1001,7 +1001,7 @@
             <!-- Featured Project 4 - Storyline Vyond -->
             <div class="portfolio-item featured">
                 <div class="portfolio-thumbnail">
-                    <iframe src="https://www.youtube.com/embed/Z403lNA3IRQ" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/LU9fABfzvrU" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="portfolio-content">
                     <h3>Multi-Tool eLearning Production</h3>
@@ -1015,20 +1015,18 @@
                 </div>
             </div>
             
-            <!-- Project 5 - Capstone -->
+            <!-- Project 3 - Immersive Capstone -->
             <div class="portfolio-item">
                 <div class="portfolio-thumbnail">
-                    <img src="https://via.placeholder.com/400x400/43e97b/ffffff?text=Immersive+Learning" alt="Immersive Capstone">
-                    <div class="play-overlay">
-                        <div class="play-icon"></div>
-                    </div>
+                    <iframe src="https://www.youtube.com/embed/n-fibvg80Vo" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="portfolio-content">
                     <h3>Immersive Capstone Series</h3>
-                    <p>Two-part simulation with AI-driven personalization and adaptive learning paths.</p>
+                    <p>Comprehensive simulation-based learning experience with AI-driven personalization and adaptive learning paths based on performance.</p>
                     <div class="portfolio-tags">
                         <span class="tag">AI-Powered</span>
                         <span class="tag">Adaptive</span>
+                        <span class="tag">Simulation</span>
                     </div>
                 </div>
             </div>
@@ -1036,7 +1034,7 @@
             <!-- Project 6 - Innovation Lab -->
             <div class="portfolio-item">
                 <div class="portfolio-thumbnail">
-                    <img src="https://via.placeholder.com/400x400/fa709a/ffffff?text=Innovation+Lab" alt="Innovation Projects">
+                    <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756586041/LEadergrid_gfgfir.png" alt="LeaderGrid Innovation Project">
                 </div>
                 <div class="portfolio-content">
                     <h3>Innovation Lab: Points & LeaderGrid</h3>
