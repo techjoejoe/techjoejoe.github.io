@@ -1,1077 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joseph O'Connell | Futuristic L&D Portfolio</title>
+    <title>Joseph O'Connell - Portfolio</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-            color: #2d3436;
-            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
         }
-        
-        /* Futuristic Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 40px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            z-index: 1000;
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 50%, #4facfe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #2d3436;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 5px 0;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #f093fb);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section - Futuristic & Colorful */
-        .hero {
-            margin-top: 80px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding: 40px;
-            background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
-            overflow: hidden;
-        }
-        
-        /* Animated gradient background */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 180deg at 50% 50%, 
-                #667eea 0deg, 
-                #f093fb 60deg, 
-                #4facfe 120deg, 
-                #43e97b 180deg, 
-                #fa709a 240deg, 
-                #fee140 300deg, 
-                #667eea 360deg);
-            opacity: 0.08;
-            animation: rotate 30s linear infinite;
-        }
-        
-        @keyframes rotate {
-            to { transform: rotate(360deg); }
-        }
-        
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-content h1 {
-            font-size: clamp(48px, 6vw, 72px);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero-title {
-            font-size: 24px;
-            background: linear-gradient(90deg, #667eea 0%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        .hero-description {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #636e72;
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 16px 36px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 100px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-        }
-        
-        .btn-secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid transparent;
-            background-image: linear-gradient(white, white), 
-                              linear-gradient(135deg, #667eea, #f093fb);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-        }
-        
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Hero Visual - Futuristic Profile */
-        .hero-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .profile-container {
-            position: relative;
-            width: 400px;
-            height: 400px;
-        }
-        
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 30px;
-            object-fit: cover;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Holographic effect */
-        .profile-decoration {
-            position: absolute;
-            inset: -20px;
-            background: linear-gradient(45deg, 
-                #667eea, #f093fb, #4facfe, #43e97b, #fa709a, #fee140, #667eea);
-            background-size: 400% 400%;
-            border-radius: 40px;
-            opacity: 0.7;
-            filter: blur(30px);
-            animation: gradient-shift 5s ease infinite;
-        }
-        
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        /* Floating orbs */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            opacity: 0.6;
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        .orb-1 {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            top: 10%;
-            left: 5%;
-        }
-        
-        .orb-2 {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            bottom: 20%;
-            right: 10%;
-            animation-delay: -5s;
-        }
-        
-        .orb-3 {
-            width: 180px;
-            height: 180px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            top: 50%;
-            left: 50%;
-            animation-delay: -10s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-        
-        /* Stats Section - Glassmorphism */
-        .stats {
-            padding: 80px 40px;
-            position: relative;
-            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-        }
-        
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-        
-        .stat-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            padding: 30px;
+        h1 {
             text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            color: #333;
         }
-        
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #f093fb, #4facfe);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
-        }
-        
-        .stat-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .stat-number {
-            font-size: 42px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-        
-        .stat-label {
-            color: #636e72;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-        
-        /* About Section - Clean & Modern */
-        .about {
-            padding: 120px 40px;
-            background: white;
-            position: relative;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-        
-        .section-tag {
-            display: inline-block;
-            padding: 8px 24px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
-            border: 2px solid transparent;
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            border-image: linear-gradient(135deg, #667eea, #f093fb) 1;
-            border-radius: 100px;
-            color: #667eea;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-        
-        h2 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .section-subtitle {
-            font-size: 18px;
-            color: #636e72;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-        
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        
-        .about-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #636e72;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-        }
-        
-        /* Skills Grid - Colorful Cards */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        
-        .skill-card {
-            background: white;
-            border: 2px solid transparent;
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, #667eea, #f093fb);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-5px);
-            border-image: linear-gradient(135deg, #667eea, #f093fb, #4facfe) 1;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
-        }
-        
-        .skill-card:hover::before {
-            opacity: 0.05;
-        }
-        
-        .skill-card:nth-child(1) .skill-icon {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-        }
-        
-        .skill-card:nth-child(2) .skill-icon {
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-        }
-        
-        .skill-card:nth-child(3) .skill-icon {
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-        }
-        
-        .skill-card:nth-child(4) .skill-icon {
-            background: linear-gradient(135deg, #43e97b, #38f9d7);
-        }
-        
-        .skill-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-        }
-        
-        .skill-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #2d3436;
-            font-weight: 700;
-        }
-        
-        .skill-list {
-            list-style: none;
-            color: #636e72;
-            font-size: 15px;
-            line-height: 2.2;
-        }
-        
-        .skill-list li::before {
-            content: "→";
-            color: #667eea;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        
-        /* Portfolio Section - Futuristic Grid */
-        .portfolio {
-            padding: 120px 40px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .filter-container {
-            max-width: 1400px;
-            margin: 0 auto 60px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 14px 28px;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 100px;
-            color: #636e72;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn:hover {
-            border-color: transparent;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
-            border-image: linear-gradient(135deg, #667eea, #f093fb) 1;
-            color: #667eea;
-            transform: translateY(-2px);
-        }
-        
-        .filter-btn.active {
-            background: linear-gradient(135deg, #667eea, #f093fb);
-            border-color: transparent;
-            color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-        
-        /* Portfolio Grid */
         .portfolio-grid {
-            max-width: 1400px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            grid-auto-rows: minmax(420px, auto);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
         .portfolio-item {
             background: white;
-            border-radius: 25px;
+            border-radius: 10px;
             overflow: hidden;
-            position: relative;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
-        .portfolio-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.25);
-        }
-        
         .portfolio-item.featured {
             grid-column: span 2;
-            background: linear-gradient(135deg, 
-                rgba(102, 126, 234, 0.05), 
-                rgba(240, 147, 251, 0.05));
         }
-        
-        .portfolio-thumbnail {
+        .thumbnail {
             width: 100%;
-            height: 250px;
-            min-height: 250px;
+            height: 200px;
+            background: #ddd;
             position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f5f7fa, #ffffff);
-            flex-shrink: 0;
         }
-        
-        .portfolio-thumbnail img {
+        .thumbnail img, .thumbnail iframe {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.4s ease;
         }
-        
-        .portfolio-item:hover .portfolio-thumbnail img {
-            transform: scale(1.1);
+        .content {
+            padding: 20px;
         }
-        
-        .portfolio-thumbnail iframe {
-            width: 100%;
-            height: 100%;
+        h3 {
+            margin: 0 0 10px 0;
+            color: #333;
         }
-        
-        /* Holographic play button */
-        .play-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.9), 
-                rgba(255, 255, 255, 0.7));
-            backdrop-filter: blur(10px);
-            border: 3px solid transparent;
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            border-image: linear-gradient(135deg, #667eea, #f093fb, #4facfe) 1;
-            border-radius: 50%;
+        p {
+            color: #666;
+            margin: 0 0 10px 0;
+        }
+        .tags {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .play-overlay:hover {
-            transform: translate(-50%, -50%) scale(1.15);
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
-        }
-        
-        .play-icon {
-            width: 0;
-            height: 0;
-            border-left: 25px solid;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            margin-left: 5px;
-            border-left-color: #667eea;
-        }
-        
-        .portfolio-content {
-            padding: 25px 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 170px;
-        }
-        
-        .portfolio-content h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #2d3436;
-            line-height: 1.4;
-        }
-        
-        .portfolio-content p {
-            font-size: 14px;
-            color: #636e72;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            flex-grow: 1;
-        }
-        
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: auto;
-        }
-        
-        .tag {
-            padding: 5px 14px;
-            background: linear-gradient(135deg, 
-                rgba(102, 126, 234, 0.08), 
-                rgba(240, 147, 251, 0.08));
-            border-radius: 100px;
-            font-size: 12px;
-            color: #667eea;
-            font-weight: 600;
-        }
-        
-        /* Contact Section */
-        .contact {
-            padding: 120px 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .contact .section-tag {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-        }
-        
-        .contact h2 {
-            color: white;
-            background: white;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 30px;
-        }
-        
-        .contact-content p {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-        
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-link {
-            padding: 16px 32px;
-            background: white;
-            border-radius: 100px;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
             gap: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
-        .contact-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .profile-container {
-                width: 300px;
-                height: 300px;
-                margin: 0 auto;
-            }
-            
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .portfolio-item.featured {
-                grid-column: span 1;
-            }
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">JO.</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <!-- Floating gradient orbs -->
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Joseph O'Connell</h1>
-                <p class="hero-title">Sr. Instructional Designer & L&D Leader</p>
-                <p class="hero-description">
-                    Pioneering the future of learning through immersive experiences, 
-                    AI-powered solutions, and human-centered design that transforms organizations.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">
-                        Explore My Work →
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        Let's Innovate Together
-                    </a>
+    <h1>Joseph O'Connell - Complete Portfolio (All 12 Projects)</h1>
+    
+    <div class="portfolio-grid">
+        <!-- PROJECT 1 -->
+        <div class="portfolio-item featured">
+            <div class="thumbnail">
+                <iframe src="https://www.youtube.com/embed/jLOUDu5gbuE" frameborder="0"></iframe>
+            </div>
+            <div class="content">
+                <h3>1. Escape Room: Hacker Takeover</h3>
+                <p>Gamified cybersecurity training</p>
+                <div class="tags">
+                    <span class="tag">Gamification</span>
+                    <span class="tag">Immersive</span>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="profile-container">
-                    <div class="profile-decoration"></div>
-                    <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756581808/Joeuuid_76B47C9B-61AC-4490-A44A-C538D178B0C6_code_001_library_1_type_1_mode_1_loc_true_cap_true_nsg1n1.jpg" alt="Joseph O'Connell" class="profile-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Years of Innovation</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">500K+</div>
-                <div class="stat-label">Learners Transformed</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">95%</div>
-                <div class="stat-label">Engagement Rate</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">40%</div>
-                <div class="stat-label">ROI Increase</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-header">
-            <span class="section-tag">About Me</span>
-            <h2>Designing Tomorrow's Learning Today</h2>
-            <p class="section-subtitle">
-                Blending creativity with technology to build learning experiences that inspire, engage, and deliver measurable results
-            </p>
         </div>
         
-        <div class="about-content">
-            <div class="about-text">
-                <p>
-                    I'm passionate about pushing the boundaries of what's possible in learning and development. 
-                    From escape room simulations to AI-powered adaptive learning paths, I create experiences that stick.
-                </p>
-                <p>
-                    My approach combines data-driven insights with creative innovation, always keeping the learner 
-                    at the center of the design. Whether it's launching apps on the App Store or building 
-                    enterprise training systems, I bring a unique blend of technical expertise and educational psychology.
-                </p>
+        <!-- PROJECT 2 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756585609/GrumpyKatWebsite_x1xqzq.png" alt="Grumpy Cat">
             </div>
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🎨</div>
-                    <h3>Creative Tools</h3>
-                    <ul class="skill-list">
-                        <li>Articulate 360 Suite</li>
-                        <li>Adobe Creative Cloud</li>
-                        <li>Vyond / GoAnimate</li>
-                        <li>Figma & Sketch</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">🚀</div>
-                    <h3>Technologies</h3>
-                    <ul class="skill-list">
-                        <li>AI & Machine Learning</li>
-                        <li>xAPI / SCORM / cmi5</li>
-                        <li>HTML5 / CSS / JavaScript</li>
-                        <li>Mobile App Development</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">💡</div>
-                    <h3>Innovation</h3>
-                    <ul class="skill-list">
-                        <li>Gamification Design</li>
-                        <li>Immersive Simulations</li>
-                        <li>AR/VR Experiences</li>
-                        <li>Adaptive Learning</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">📊</div>
-                    <h3>Strategy</h3>
-                    <ul class="skill-list">
-                        <li>Learning Analytics</li>
-                        <li>Performance Consulting</li>
-                        <li>Change Management</li>
-                        <li>ROI Measurement</li>
-                    </ul>
+            <div class="content">
+                <h3>2. iOS App: Grumpy Cat Stickers</h3>
+                <p>Published Apple App Store app</p>
+                <div class="tags">
+                    <span class="tag">iOS</span>
+                    <span class="tag">App Store</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="section-header">
-            <span class="section-tag">Portfolio</span>
-            <h2>Innovation in Action</h2>
-            <p class="section-subtitle">
-                Explore groundbreaking learning experiences that challenge conventions and deliver results
-            </p>
         </div>
         
-        <div class="filter-container">
-            <button class="filter-btn active">All Projects</button>
-            <button class="filter-btn">Immersive</button>
-            <button class="filter-btn">Interactive</button>
-            <button class="filter-btn">Traditional</button>
-            <button class="filter-btn">Innovation</button>
+        <!-- PROJECT 3 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756586510/SHIFTPORTFOLIO_u4tayj.png" alt="SHIFT">
+            </div>
+            <div class="content">
+                <h3>3. SHIFT Cards</h3>
+                <p>Coaching cards for leadership</p>
+                <div class="tags">
+                    <span class="tag">Coaching</span>
+                    <span class="tag">Leadership</span>
+                </div>
+            </div>
         </div>
         
-        <div class="portfolio-grid">
-            <!-- Featured Project 1 - Escape Room -->
-            <div class="portfolio-item featured">
-                <div class="portfolio-thumbnail">
-                    <iframe src="https://www.youtube.com/embed/jLOUDu5gbuE" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Escape Room: Hacker Takeover</h3>
-                    <p>Gamified cybersecurity training using escape room mechanics. Learners solve puzzles to prevent breaches while mastering protocols.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Gamification</span>
-                        <span class="tag">Immersive</span>
-                        <span class="tag">Cybersecurity</span>
-                    </div>
-                </div>
+        <!-- PROJECT 4 -->
+        <div class="portfolio-item featured">
+            <div class="thumbnail">
+                <iframe src="https://www.youtube.com/embed/LU9fABfzvrU" frameborder="0"></iframe>
             </div>
-            
-            <!-- Project 2 - Grumpy Cat App -->
-            <div class="portfolio-item">
-                <div class="portfolio-thumbnail">
-                    <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756585609/GrumpyKatWebsite_x1xqzq.png" alt="Grumpy Cat Stickers App">
-                </div>
-                <div class="portfolio-content">
-                    <h3>iOS App: Grumpy Cat Stickers</h3>
-                    <p>Published Apple App Store application demonstrating technical skills and creative design.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">iOS Development</span>
-                        <span class="tag">App Store</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 3 - Measurement System -->
-            <div class="portfolio-item">
-                <div class="portfolio-thumbnail">
-                    <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756585923/44893a_1ce3029f327a4748a393d65f362c96df_mv2_rfdbh8.png" alt="Training Analytics Dashboard">
-                </div>
-                <div class="portfolio-content">
-                    <h3>Training Analytics Platform</h3>
-                    <p>Real-time dashboard measuring training effectiveness and ROI with predictive analytics.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Data Analytics</span>
-                        <span class="tag">ROI Tracking</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Featured Project 4 - Storyline Vyond -->
-            <div class="portfolio-item featured">
-                <div class="portfolio-thumbnail">
-                    <iframe src="https://www.youtube.com/embed/LU9fABfzvrU" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Multi-Tool eLearning Production</h3>
-                    <p>Advanced integration of Storyline, Vyond animations, custom scripting, and AI voice technology for scalable training.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Articulate</span>
-                        <span class="tag">Vyond</span>
-                        <span class="tag">AI Voice</span>
-                        <span class="tag">Automation</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 3 - Immersive Capstone -->
-            <div class="portfolio-item">
-                <div class="portfolio-thumbnail">
-                    <iframe src="https://www.youtube.com/embed/n-fibvg80Vo" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Immersive Capstone Series</h3>
-                    <p>Comprehensive simulation-based learning experience with AI-driven personalization and adaptive learning paths based on performance.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">AI-Powered</span>
-                        <span class="tag">Adaptive</span>
-                        <span class="tag">Simulation</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 6 - Innovation Lab -->
-            <div class="portfolio-item">
-                <div class="portfolio-thumbnail">
-                    <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756586041/LEadergrid_gfgfir.png" alt="LeaderGrid Innovation Project">
-                </div>
-                <div class="portfolio-content">
-                    <h3>Innovation Lab: Points & LeaderGrid</h3>
-                    <p>Experimental projects exploring gamification and leadership assessment tools.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">R&D</span>
-                        <span class="tag">Gamification</span>
-                    </div>
+            <div class="content">
+                <h3>4. Multi-Tool eLearning</h3>
+                <p>Storyline, Vyond, AI voice</p>
+                <div class="tags">
+                    <span class="tag">Articulate</span>
+                    <span class="tag">AI</span>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-content">
-            <span class="section-tag">Let's Connect</span>
-            <h2>Ready to Transform Learning?</h2>
-            <p>
-                Let's collaborate to create learning experiences that push boundaries, 
-                inspire innovation, and deliver exceptional results.
-            </p>
-            <div class="contact-links">
-                <a href="mailto:joe_o@mac.com" class="contact-link">
-                    ✉️ joe_o@mac.com
-                </a>
-                <a href="tel:224-500-5749" class="contact-link">
-                    📱 224-500-5749
-                </a>
-                <a href="https://www.linkedin.com/in/joeoconnell25" class="contact-link">
-                    💼 LinkedIn
-                </a>
-                <a href="https://github.com/techjoejoe" class="contact-link">
-                    💻 GitHub
-                </a>
+        
+        <!-- PROJECT 5 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756585923/44893a_1ce3029f327a4748a393d65f362c96df_mv2_rfdbh8.png" alt="Analytics">
+            </div>
+            <div class="content">
+                <h3>5. Training Analytics</h3>
+                <p>ROI dashboard</p>
+                <div class="tags">
+                    <span class="tag">Analytics</span>
+                    <span class="tag">ROI</span>
+                </div>
             </div>
         </div>
-    </section>
+        
+        <!-- PROJECT 6 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <iframe src="https://www.youtube.com/embed/n-fibvg80Vo" frameborder="0"></iframe>
+            </div>
+            <div class="content">
+                <h3>6. Immersive Capstone</h3>
+                <p>AI-driven adaptive learning</p>
+                <div class="tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">Adaptive</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROJECT 7 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <iframe src="https://www.youtube.com/embed/whBBpiFwhzI" frameborder="0"></iframe>
+            </div>
+            <div class="content">
+                <h3>7. AI SHIFT Coach</h3>
+                <p>AI-powered coaching</p>
+                <div class="tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">Coaching</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROJECT 8 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756586041/LEadergrid_gfgfir.png" alt="LeaderGrid">
+            </div>
+            <div class="content">
+                <h3>8. LeaderGrid</h3>
+                <p>Leadership assessment</p>
+                <div class="tags">
+                    <span class="tag">Leadership</span>
+                    <span class="tag">Assessment</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROJECT 9 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <iframe src="https://www.youtube.com/embed/fwd4XbZJlic" frameborder="0"></iframe>
+            </div>
+            <div class="content">
+                <h3>9. Content Studio</h3>
+                <p>Production setup</p>
+                <div class="tags">
+                    <span class="tag">Video</span>
+                    <span class="tag">Studio</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROJECT 10 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <iframe src="https://www.youtube.com/embed/_w-6M7rRn0w" frameborder="0"></iframe>
+            </div>
+            <div class="content">
+                <h3>10. Virtual ILT</h3>
+                <p>VILT package</p>
+                <div class="tags">
+                    <span class="tag">VILT</span>
+                    <span class="tag">Training</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROJECT 11 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <div style="background:#667eea; color:white; height:200px; display:flex; align-items:center; justify-content:center;">
+                    Experiential Learning
+                </div>
+            </div>
+            <div class="content">
+                <h3>11. Experiential Learning</h3>
+                <p>Game-based platform</p>
+                <div class="tags">
+                    <span class="tag">Games</span>
+                    <span class="tag">Learning</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PROJECT 12 -->
+        <div class="portfolio-item">
+            <div class="thumbnail">
+                <div style="background:#f093fb; color:white; height:200px; display:flex; align-items:center; justify-content:center;">
+                    Director's Cut
+                </div>
+            </div>
+            <div class="content">
+                <h3>12. Director's Cut Guide</h3>
+                <p>Facilitator guide</p>
+                <div class="tags">
+                    <span class="tag">Guide</span>
+                    <span class="tag">Training</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
