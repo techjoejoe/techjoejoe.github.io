@@ -286,76 +286,12 @@
             66% { transform: translate(-20px, 20px) scale(0.9); }
         }
         
-        /* Stats Section - Glassmorphism */
-        .stats {
-            padding: 80px 40px;
-            position: relative;
+        /* Portfolio Section - Futuristic Grid */
+        .portfolio {
+            padding: 120px 40px;
             background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-        }
-        
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-        
-        .stat-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-        }
-        
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #f093fb, #4facfe);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
-        }
-        
-        .stat-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .stat-number {
-            font-size: 42px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-        
-        .stat-label {
-            color: #636e72;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-        
-        /* About Section - Clean & Modern */
-        .about {
-            padding: 120px 40px;
-            background: white;
-            position: relative;
         }
         
         .section-header {
@@ -395,121 +331,6 @@
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.8;
-        }
-        
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        
-        .about-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #636e72;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-        }
-        
-        /* Skills Grid - Colorful Cards */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        
-        .skill-card {
-            background: white;
-            border: 2px solid transparent;
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, #667eea, #f093fb);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-5px);
-            border-image: linear-gradient(135deg, #667eea, #f093fb, #4facfe) 1;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
-        }
-        
-        .skill-card:hover::before {
-            opacity: 0.05;
-        }
-        
-        .skill-card:nth-child(1) .skill-icon {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-        }
-        
-        .skill-card:nth-child(2) .skill-icon {
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-        }
-        
-        .skill-card:nth-child(3) .skill-icon {
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-        }
-        
-        .skill-card:nth-child(4) .skill-icon {
-            background: linear-gradient(135deg, #43e97b, #38f9d7);
-        }
-        
-        .skill-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-        }
-        
-        .skill-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #2d3436;
-            font-weight: 700;
-        }
-        
-        .skill-list {
-            list-style: none;
-            color: #636e72;
-            font-size: 15px;
-            line-height: 2.2;
-        }
-        
-        .skill-list li::before {
-            content: "→";
-            color: #667eea;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        
-        /* Portfolio Section - Futuristic Grid */
-        .portfolio {
-            padding: 120px 40px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
-            position: relative;
-            overflow: hidden;
         }
         
         .filter-container {
@@ -691,6 +512,185 @@
             font-weight: 600;
         }
         
+        /* Stats Section - Glassmorphism */
+        .stats {
+            padding: 80px 40px;
+            position: relative;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #f093fb, #4facfe);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+        }
+        
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #636e72;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* About Section - Clean & Modern */
+        .about {
+            padding: 120px 40px;
+            background: white;
+            position: relative;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #636e72;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        /* Skills Grid - Colorful Cards */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .skill-card {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-image: linear-gradient(135deg, #667eea, #f093fb, #4facfe) 1;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+        
+        .skill-card:hover::before {
+            opacity: 0.05;
+        }
+        
+        .skill-card:nth-child(1) .skill-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .skill-card:nth-child(2) .skill-icon {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+        
+        .skill-card:nth-child(3) .skill-icon {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+        
+        .skill-card:nth-child(4) .skill-icon {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+        
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .skill-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: 700;
+        }
+        
+        .skill-list {
+            list-style: none;
+            color: #636e72;
+            font-size: 15px;
+            line-height: 2.2;
+        }
+        
+        .skill-list li::before {
+            content: "→";
+            color: #667eea;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
         /* Contact Section */
         .contact {
             padding: 120px 40px;
@@ -802,8 +802,8 @@
             <div class="logo">JO.</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -842,104 +842,11 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-card">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Years of Innovation</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">500K+</div>
-                <div class="stat-label">Learners Transformed</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">95%</div>
-                <div class="stat-label">Engagement Rate</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">40%</div>
-                <div class="stat-label">ROI Increase</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-header">
-            <span class="section-tag">About Me</span>
-            <h2>Designing Tomorrow's Learning Today</h2>
-            <p class="section-subtitle">
-                Blending creativity with technology to build learning experiences that inspire, engage, and deliver measurable results
-            </p>
-        </div>
-        
-        <div class="about-content">
-            <div class="about-text">
-                <p>
-                    I'm passionate about pushing the boundaries of what's possible in learning and development. 
-                    From escape room simulations to AI-powered adaptive learning paths, I create experiences that stick.
-                </p>
-                <p>
-                    My approach combines data-driven insights with creative innovation, always keeping the learner 
-                    at the center of the design. Whether it's launching apps on the App Store or building 
-                    enterprise training systems, I bring a unique blend of technical expertise and educational psychology.
-                </p>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🎨</div>
-                    <h3>Creative Tools</h3>
-                    <ul class="skill-list">
-                        <li>Articulate 360 Suite</li>
-                        <li>Adobe Creative Cloud</li>
-                        <li>Vyond / GoAnimate</li>
-                        <li>Figma & Sketch</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">🚀</div>
-                    <h3>Technologies</h3>
-                    <ul class="skill-list">
-                        <li>AI & Machine Learning</li>
-                        <li>xAPI / SCORM / cmi5</li>
-                        <li>HTML5 / CSS / JavaScript</li>
-                        <li>Mobile App Development</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">💡</div>
-                    <h3>Innovation</h3>
-                    <ul class="skill-list">
-                        <li>Gamification Design</li>
-                        <li>Immersive Simulations</li>
-                        <li>AR/VR Experiences</li>
-                        <li>Adaptive Learning</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">📊</div>
-                    <h3>Strategy</h3>
-                    <ul class="skill-list">
-                        <li>Learning Analytics</li>
-                        <li>Performance Consulting</li>
-                        <li>Change Management</li>
-                        <li>ROI Measurement</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
+    <!-- Portfolio Section - MOVED TO TOP -->
     <section class="portfolio" id="portfolio">
         <div class="section-header">
             <span class="section-tag">Portfolio</span>
-            <h2>Innovation in Action</h2>
+            <h2>Innovation in Motion</h2>
             <p class="section-subtitle">
                 Explore groundbreaking learning experiences that challenge conventions and deliver results
             </p>
@@ -1058,7 +965,7 @@
                 </div>
             </a>
             
-            <!-- LeaderGrid - FIXED WITH NEW IMAGE -->
+            <!-- LeaderGrid -->
             <a href="project-leadergrid.html" class="portfolio-item">
                 <div class="portfolio-thumbnail">
                     <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756660214/Leadrgridexample_vtuy1i.png" alt="LeaderGrid">
@@ -1137,6 +1044,99 @@
                     </div>
                 </div>
             </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years of Innovation</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500K+</div>
+                <div class="stat-label">Learners Transformed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Engagement Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">ROI Increase</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section - MOVED TO BOTTOM -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <span class="section-tag">About Me</span>
+            <h2>Designing Tomorrow's Learning Today</h2>
+            <p class="section-subtitle">
+                Blending creativity with technology to build learning experiences that inspire, engage, and deliver measurable results
+            </p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I'm passionate about pushing the boundaries of what's possible in learning and development. 
+                    From escape room simulations to AI-powered adaptive learning paths, I create experiences that stick.
+                </p>
+                <p>
+                    My approach combines data-driven insights with creative innovation, always keeping the learner 
+                    at the center of the design. Whether it's launching apps on the App Store or building 
+                    enterprise training systems, I bring a unique blend of technical expertise and educational psychology.
+                </p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Creative Tools</h3>
+                    <ul class="skill-list">
+                        <li>Articulate 360 Suite</li>
+                        <li>Adobe Creative Cloud</li>
+                        <li>Vyond / GoAnimate</li>
+                        <li>Figma & Sketch</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Technologies</h3>
+                    <ul class="skill-list">
+                        <li>AI & Machine Learning</li>
+                        <li>xAPI / SCORM</li>
+                        <li>HTML5 / CSS / JavaScript</li>
+                        <li>Mobile First Learning</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">💡</div>
+                    <h3>Innovation</h3>
+                    <ul class="skill-list">
+                        <li>Gamification Design</li>
+                        <li>Immersive Simulations</li>
+                        <li>AR/VR Experiences</li>
+                        <li>Adaptive Learning</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Strategy</h3>
+                    <ul class="skill-list">
+                        <li>Learning Analytics</li>
+                        <li>Performance Consulting</li>
+                        <li>Change Management</li>
+                        <li>ROI Measurement</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
