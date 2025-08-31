@@ -30,6 +30,24 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
             z-index: 1000;
+            position: relative;
+        }
+        
+        /* Subtle checkered stripe at bottom of nav */
+        nav::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: repeating-linear-gradient(
+                90deg,
+                #ff6b35 0,
+                #ff6b35 6px,
+                #ffa947 6px,
+                #ffa947 12px
+            );
         }
         
         .nav-container {
@@ -87,6 +105,25 @@
             justify-content: center;
         }
         
+        /* Checkered flag pattern at bottom of hero */
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background-image: 
+                linear-gradient(45deg, #000 25%, transparent 25%),
+                linear-gradient(-45deg, #000 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #000 75%),
+                linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
         /* Animated gradient background */
         .project-hero::before {
             content: '';
@@ -130,6 +167,8 @@
             font-weight: 800;
             margin-bottom: 25px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            font-style: italic;
+            letter-spacing: 2px;
         }
         
         .project-subtitle {
@@ -137,6 +176,22 @@
             opacity: 0.95;
             margin-bottom: 30px;
             font-weight: 300;
+        }
+        
+        .racing-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000 0px,
+                #000 10px,
+                #fff 10px,
+                #fff 20px
+            );
+            opacity: 0.3;
         }
         
         .project-tags {
@@ -338,6 +393,26 @@
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
             flex-shrink: 0;
+            position: relative;
+        }
+        
+        .play-pause-btn::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            padding: 3px;
+            background: conic-gradient(from 0deg, #ff6b35, #ffa947, #ff6b35);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: rotate 2s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .play-pause-btn.playing::before {
+            opacity: 1;
         }
         
         .play-pause-btn:hover {
@@ -444,6 +519,43 @@
             padding: 10px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Checkered border for media section */
+        .media-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000 0,
+                #000 10px,
+                #fff 10px,
+                #fff 20px
+            );
+            z-index: 10;
+        }
+        
+        .media-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000 0,
+                #000 10px,
+                #fff 10px,
+                #fff 20px
+            );
+            z-index: 10;
         }
         
         .main-media {
@@ -470,6 +582,27 @@
             padding: 60px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Checkered accent stripe */
+        .framework-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 5px;
+            background: repeating-linear-gradient(
+                90deg,
+                #ff6b35 0,
+                #ff6b35 5px,
+                #fff 5px,
+                #fff 10px
+            );
+            border-radius: 0 0 10px 10px;
         }
         
         .framework-section h2 {
@@ -499,6 +632,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
         }
         
         .shift-card::before {
@@ -514,9 +648,25 @@
             pointer-events: none;
         }
         
+        .shift-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg) translateY(-100%);
+            transition: transform 0.6s;
+        }
+        
         .shift-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotateX(5deg);
             box-shadow: 0 15px 30px rgba(255, 107, 53, 0.2);
+        }
+        
+        .shift-card:hover::after {
+            transform: rotate(45deg) translateY(100%);
         }
         
         .shift-letter {
@@ -526,6 +676,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
+            font-style: italic;
+            display: inline-block;
+            transform: skewX(-10deg);
         }
         
         .shift-word {
@@ -533,6 +686,8 @@
             font-weight: 700;
             color: #2d3436;
             margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .shift-description {
@@ -604,10 +759,9 @@
         }
         
         .feature-list li:before {
-            content: "🎯";
             position: absolute;
             left: 0;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
         
         /* Details Card */
@@ -668,6 +822,25 @@
             pointer-events: none;
         }
         
+        /* Checkered pattern decoration */
+        .results-section::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background-image: 
+                linear-gradient(45deg, #ff6b35 25%, transparent 25%),
+                linear-gradient(-45deg, #ff6b35 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #ff6b35 75%),
+                linear-gradient(-45deg, transparent 75%, #ff6b35 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            opacity: 0.1;
+            border-radius: 10px;
+        }
+        
         .results-section h2 {
             font-size: 2.5rem;
             font-weight: 800;
@@ -676,6 +849,35 @@
             background: linear-gradient(135deg, #ff6b35 0%, #ffa947 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .results-section h2::before,
+        .results-section h2::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 30px;
+            background: repeating-linear-gradient(
+                45deg,
+                #000,
+                #000 5px,
+                #fff 5px,
+                #fff 10px
+            );
+            opacity: 0.15;
+        }
+        
+        .results-section h2::before {
+            left: 10%;
+        }
+        
+        .results-section h2::after {
+            right: 10%;
         }
         
         .results-grid {
@@ -691,6 +893,24 @@
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .result-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6b35, transparent);
+            animation: slide 3s infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
         
         .result-item:hover {
@@ -747,6 +967,29 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.2) 10px,
+                rgba(255, 255, 255, 0.2) 20px
+            );
+            transition: left 0.5s ease;
+        }
+        
+        .project-nav-btn:hover::before {
+            left: 100%;
         }
         
         .project-nav-btn:hover {
@@ -826,10 +1069,10 @@
                 <h1>SHIFT Coaching Framework & Cards</h1>
                 <p class="project-subtitle">Empowering Leaders Through Transformational Coaching Tools</p>
                 <div class="project-tags">
-                    <span class="tag">Coaching Framework</span>
-                    <span class="tag">Leadership Development</span>
-                    <span class="tag">Physical & Digital</span>
-                    <span class="tag">Innovation</span>
+                    <span class="tag">🏁 Coaching Framework</span>
+                    <span class="tag">⚡ Leadership Development</span>
+                    <span class="tag">🚀 AI-Powered</span>
+                    <span class="tag">🏆 Innovation</span>
                 </div>
             </div>
             <div class="hero-image">
@@ -840,11 +1083,18 @@
 
     <!-- Project Content -->
     <div class="project-content">
+        <!-- Additional Image Section - Moved to Top -->
+        <div class="media-section">
+            <div class="main-media">
+                <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756646305/SHIFTCAR_tebvpp.png" alt="SHIFT Cards Physical Deck">
+            </div>
+        </div>
+
         <!-- Featured Audio Section -->
         <div class="audio-showcase">
             <div class="audio-header">
                 <h2>🎵 Featured Audio Experience</h2>
-                <p>Listen to the soundtrack that accompanies the SHIFT coaching journey</p>
+                <p>Listen to the soundtrack that powers the SHIFT journey</p>
             </div>
             
             <div class="audio-player-container">
@@ -939,13 +1189,6 @@
             </div>
         </div>
 
-        <!-- Additional Image Section -->
-        <div class="media-section">
-            <div class="main-media">
-                <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756646305/SHIFTCAR_tebvpp.png" alt="SHIFT Cards Physical Deck">
-            </div>
-        </div>
-
         <!-- Info Grid -->
         <div class="info-grid">
             <!-- Description -->
@@ -970,11 +1213,11 @@
                 <div class="key-features">
                     <h3>Key Components</h3>
                     <ul class="feature-list">
-                        <li>Digital app with AI-powered coaching suggestions</li>
-                        <li>Comprehensive facilitator guide and training materials</li>
-                        <li>Assessment tools to measure coaching effectiveness</li>
-                        <li>Integration with existing leadership programs</li>
-                        <li>Scalable across organizations of any size</li>
+                        <li>⚡ Digital app with AI-powered coaching suggestions</li>
+                        <li>🎯 Comprehensive facilitator guide and training materials</li>
+                        <li>📊 Assessment tools to measure coaching effectiveness</li>
+                        <li>🔧 Integration with existing leadership programs</li>
+                        <li>🚀 Scalable across organizations of any size</li>
                     </ul>
                 </div>
             </div>
@@ -982,17 +1225,17 @@
             <!-- Details -->
             <div class="details-card">
                 <div class="detail-item">
-                    <div class="detail-label">Leaders Trained</div>
+                    <div class="detail-label">🏎️ Leaders Trained</div>
                     <div class="detail-value">5,000+</div>
                 </div>
                 
                 <div class="detail-item">
-                    <div class="detail-label">My Role</div>
+                    <div class="detail-label">⚙️ My Role</div>
                     <div class="detail-value">Creator & Lead Designer</div>
                 </div>
                 
                 <div class="detail-item">
-                    <div class="detail-label">Recognition</div>
+                    <div class="detail-label">🏆 Recognition</div>
                     <div class="detail-value">2025 Innovation Award</div>
                 </div>
             </div>
