@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room: Hacker Takeover | Joseph O'Connell</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            color: #2d3436;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 50%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+            text-decoration: none;
+        }
+        
+        .back-btn {
+            padding: 12px 28px;
+            background: white;
+            border: 2px solid transparent;
+            background-image: linear-gradient(white, white), 
+                              linear-gradient(135deg, #667eea, #f093fb);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 100px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        /* Hero Section */
+        .project-hero {
+            margin-top: 80px;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+        }
+        
+        .hero-bg-gif {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .project-hero h1,
+        .project-hero .hero-description,
+        .project-hero .project-category {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .project-hero .tag {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+            z-index: 2;
+        }
+        
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .project-category {
+            display: inline-block;
+            padding: 8px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 100px;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: clamp(48px, 6vw, 72px);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .hero-description {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        /* Video Section */
+        .video-section {
+            padding: 80px 40px;
+            background: white;
+        }
+        
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Overview Section */
+        .overview {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #636e72;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .overview-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #636e72;
+        }
+        
+        .overview-text p {
+            margin-bottom: 20px;
+        }
+        
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #636e72;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 40px;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-image: linear-gradient(135deg, #667eea, #f093fb) 1;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: 700;
+        }
+        
+        .feature-card p {
+            font-size: 15px;
+            color: #636e72;
+            line-height: 1.6;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+        }
+        
+        .process-timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea, #f093fb);
+            border-radius: 3px;
+        }
+        
+        .process-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: center;
+            position: relative;
+        }
+        
+        .process-item:nth-child(even) {
+            direction: rtl;
+        }
+        
+        .process-item:nth-child(even) > * {
+            direction: ltr;
+        }
+        
+        .process-content {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .process-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .process-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2d3436;
+            font-weight: 700;
+        }
+        
+        .process-content p {
+            font-size: 16px;
+            color: #636e72;
+            line-height: 1.6;
+        }
+        
+        .process-image {
+            position: relative;
+        }
+        
+        .process-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 25px;
+            height: 25px;
+            background: white;
+            border: 4px solid #667eea;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        
+        /* Results Section */
+        .results {
+            padding: 80px 40px;
+            background: white;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+        
+        .result-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.15);
+        }
+        
+        .result-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .result-value {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .result-label {
+            color: #636e72;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            color: white;
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-white {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .overview-grid,
+            .process-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-timeline::before {
+                left: 20px;
+            }
+            
+            .process-item:nth-child(even) {
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">JO.</a>
+            <a href="index.html#portfolio" class="back-btn">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756667048/Congratulations1-ezgif.com-optimize_ogkipy.gif" class="hero-bg-gif" alt="Animated Background">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="project-category">Gamified Learning Experience</span>
+            <h1>Escape Room: Hacker Takeover</h1>
+            <p class="hero-description">
+                An innovative surprise gamified training experience that transforms presentation skills development 
+                into an exciting digital/physical escape room adventure on iPads. Learners must gather knowledge, 
+                crack codes, and complete challenges to demonstrate presentation skills and squash a hacker's bugs 
+                while mastering essential communication techniques.
+            </p>
+            <div class="project-tags">
+                <span class="tag">🎮 Gamification</span>
+                <span class="tag">🎭 Immersive Learning</span>
+                <span class="tag">🎤 Presentation Skills</span>
+                <span class="tag">🧩 Problem-Solving</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="video-container">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/jLOUDu5gbuE" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <div class="content-container">
+            <div class="section-header">
+                <h2>Project Overview</h2>
+                <p class="section-subtitle">
+                    Revolutionizing corporate training through immersive gameplay and narrative-driven learning
+                </p>
+            </div>
+            
+            <div class="overview-grid">
+                <div class="overview-text">
+                    <p>
+                        <strong>The Challenge:</strong> Traditional presentation skills training often fails to engage learners, 
+                        resulting in poor retention and limited skill transfer to real-world scenarios. Organizations needed 
+                        a more engaging approach that would capture attention and drive lasting behavioral change.
+                    </p>
+                    <p>
+                        <strong>The Solution:</strong> I designed and developed an escape room experience that seamlessly 
+                        integrates presentation skills training into an engaging narrative. Learners become agents trying 
+                        to stop a hacker takeover, using their communication skills as tools to solve puzzles and save the day.
+                    </p>
+                    <p>
+                        <strong>The Innovation:</strong> By combining game mechanics with learning objectives, this solution 
+                        transforms mandatory training into an anticipated experience. The high-stakes scenario creates authentic 
+                        pressure situations where learners practice skills in context.
+                    </p>
+                </div>
+                
+                <div class="overview-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Completion Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4.8/5</div>
+                        <div class="stat-label">Learner Rating</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">73%</div>
+                        <div class="stat-label">Knowledge Retention</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.5x</div>
+                        <div class="stat-label">Engagement Increase</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <h2>Key Features</h2>
+            <p class="section-subtitle">
+                Innovative elements that make this learning experience unforgettable
+            </p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Scenario-Based Learning</h3>
+                <p>Real-world presentation challenges embedded within the escape room narrative, from elevator pitches to crisis communications.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>Time Pressure Mechanics</h3>
+                <p>Countdown timers create authentic pressure situations, helping learners practice staying composed under stress.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>Achievement System</h3>
+                <p>Badges, points, and leaderboards motivate continuous improvement and friendly competition among teams.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Adaptive Difficulty</h3>
+                <p>AI-driven system adjusts challenge level based on learner performance, ensuring optimal engagement for all skill levels.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Real-Time Feedback</h3>
+                <p>Immediate coaching tips and performance insights help learners adjust their approach during the experience.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Collaborative Mode</h3>
+                <p>Team challenges foster peer learning and mirror real workplace presentation scenarios.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="section-header">
+            <h2>Development Process</h2>
+            <p class="section-subtitle">
+                From concept to launch: Building an award-winning learning experience
+            </p>
+        </div>
+        
+        <div class="process-timeline">
+            <div class="process-item">
+                <div class="process-content">
+                    <span class="process-number">1</span>
+                    <h3>Research & Discovery</h3>
+                    <p>Conducted stakeholder interviews, analyzed learner personas, and identified key presentation skills gaps through surveys and focus groups.</p>
+                </div>
+                <div class="process-image"></div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-content">
+                    <span class="process-number">2</span>
+                    <h3>Narrative Design</h3>
+                    <p>Created compelling storyline with professional scriptwriters, ensuring each puzzle directly reinforced learning objectives while maintaining engagement.</p>
+                </div>
+                <div class="process-image"></div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-content">
+                    <span class="process-number">3</span>
+                    <h3>Interactive Development</h3>
+                    <p>Built using Articulate Storyline 360 with custom JavaScript for advanced interactions, integrated with xAPI for detailed analytics tracking.</p>
+                </div>
+                <div class="process-image"></div>
+            </div>
+            
+            <div class="process-item">
+                <div class="process-content">
+                    <span class="process-number">4</span>
+                    <h3>Testing & Iteration</h3>
+                    <p>Conducted multiple rounds of user testing with 200+ learners, refining difficulty curves and optimizing user experience based on feedback.</p>
+                </div>
+                <div class="process-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results">
+        <div class="section-header">
+            <h2>Impact & Results</h2>
+            <p class="section-subtitle">
+                Measurable outcomes that demonstrate the power of gamified learning
+            </p>
+        </div>
+        
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="result-icon">📈</div>
+                <div class="result-value">87%</div>
+                <div class="result-label">Skill Improvement</div>
+            </div>
+            
+            <div class="result-card">
+                <div class="result-icon">⏰</div>
+                <div class="result-value">40%</div>
+                <div class="result-label">Time Reduction</div>
+            </div>
+            
+            <div class="result-card">
+                <div class="result-icon">💰</div>
+                <div class="result-value">$2.3M</div>
+                <div class="result-label">Training Cost Savings</div>
+            </div>
+            
+            <div class="result-card">
+                <div class="result-icon">🎯</div>
+                <div class="result-value">10,000+</div>
+                <div class="result-label">Learners Trained</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Training?</h2>
+            <p>
+                Let's create engaging learning experiences that your teams will actually enjoy 
+                while delivering measurable business results.
+            </p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-white">
+                    Start a Conversation →
+                </a>
+                <a href="index.html#portfolio" class="btn btn-white">
+                    View More Projects
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
