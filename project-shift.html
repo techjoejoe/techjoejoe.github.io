@@ -105,6 +105,74 @@
             justify-content: center;
         }
         
+        /* Floating racing flags */
+        .racing-flag {
+            position: absolute;
+            font-size: 6rem;
+            opacity: 0.3;
+            animation: floatFlag 20s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        .racing-flag-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 18s;
+            font-size: 7rem;
+        }
+        
+        .racing-flag-2 {
+            top: 60%;
+            right: 15%;
+            animation-delay: -5s;
+            animation-duration: 22s;
+            font-size: 8rem;
+        }
+        
+        .racing-flag-3 {
+            bottom: 30%;
+            left: 5%;
+            animation-delay: -10s;
+            animation-duration: 25s;
+            font-size: 5rem;
+        }
+        
+        .racing-flag-4 {
+            top: 35%;
+            right: 8%;
+            animation-delay: -15s;
+            animation-duration: 20s;
+            font-size: 6.5rem;
+        }
+        
+        .racing-flag-5 {
+            bottom: 20%;
+            right: 25%;
+            animation-delay: -7s;
+            animation-duration: 23s;
+            font-size: 9rem;
+        }
+        
+        @keyframes floatFlag {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.3;
+            }
+            25% { 
+                transform: translate(30px, -40px) rotate(10deg);
+                opacity: 0.5;
+            }
+            50% { 
+                transform: translate(-20px, 20px) rotate(-5deg);
+                opacity: 0.3;
+            }
+            75% { 
+                transform: translate(40px, 10px) rotate(15deg);
+                opacity: 0.4;
+            }
+        }
+        
         /* Checkered flag pattern at bottom of hero */
         .project-hero::after {
             content: '';
@@ -465,12 +533,12 @@
         .volume-control {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
         
         .volume-icon {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             fill: #636e72;
             cursor: pointer;
             transition: fill 0.3s ease;
@@ -481,8 +549,8 @@
         }
         
         .volume-slider {
-            width: 120px;
-            height: 6px;
+            width: 100px;
+            height: 5px;
             -webkit-appearance: none;
             appearance: none;
             background: #e0e0e0;
@@ -494,8 +562,8 @@
         .volume-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 18px;
-            height: 18px;
+            width: 15px;
+            height: 15px;
             background: linear-gradient(135deg, #ff6b35, #ffa947);
             border-radius: 50%;
             cursor: pointer;
@@ -503,8 +571,8 @@
         }
         
         .volume-slider::-moz-range-thumb {
-            width: 18px;
-            height: 18px;
+            width: 15px;
+            height: 15px;
             background: linear-gradient(135deg, #ff6b35, #ffa947);
             border-radius: 50%;
             cursor: pointer;
@@ -1064,6 +1132,13 @@
 
     <!-- Project Hero -->
     <section class="project-hero">
+        <!-- Floating racing flags -->
+        <div class="racing-flag racing-flag-1">🏁</div>
+        <div class="racing-flag racing-flag-2">🏁</div>
+        <div class="racing-flag racing-flag-3">🏁</div>
+        <div class="racing-flag racing-flag-4">🏁</div>
+        <div class="racing-flag racing-flag-5">🏁</div>
+        
         <div class="hero-content">
             <div class="hero-text">
                 <h1>SHIFT Coaching Framework & Cards</h1>
@@ -1090,54 +1165,6 @@
             </div>
         </div>
 
-        <!-- Featured Audio Section -->
-        <div class="audio-showcase">
-            <div class="audio-header">
-                <h2>🎵 Featured Audio Experience</h2>
-                <p>Listen to the soundtrack that powers the SHIFT journey</p>
-            </div>
-            
-            <div class="audio-player-container">
-                <div class="track-info">
-                    <div class="track-title">SHIFT Theme Song</div>
-                    <div class="track-artist">SHIFT Framework Soundtrack</div>
-                </div>
-                
-                <div class="audio-controls">
-                    <button class="play-pause-btn" id="playPauseBtn">
-                        <svg id="playIcon" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
-                        <svg id="pauseIcon" style="display: none;" viewBox="0 0 24 24">
-                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                        </svg>
-                    </button>
-                    
-                    <div class="progress-container">
-                        <div class="progress-bar" id="progressBar">
-                            <div class="progress-fill" id="progressFill"></div>
-                        </div>
-                        <div class="time-display">
-                            <span id="currentTime">0:00</span>
-                            <span id="duration">0:00</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="volume-control">
-                    <svg class="volume-icon" id="volumeIcon" viewBox="0 0 24 24">
-                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                    </svg>
-                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
-                </div>
-            </div>
-            
-            <!-- Hidden audio element -->
-            <audio id="audioPlayer" preload="metadata">
-                <source src="https://res.cloudinary.com/dwfzc3ygn/video/upload/v1756646871/Engine_rumble_steady_beat_Remix_sf0hed.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
 
         <!-- SHIFT Framework Section -->
         <div class="framework-section">
@@ -1225,18 +1252,67 @@
             <!-- Details -->
             <div class="details-card">
                 <div class="detail-item">
-                    <div class="detail-label">🏎️ Leaders Trained</div>
-                    <div class="detail-value">5,000+</div>
+                    <div class="detail-label">🏎️ Leaders Reached</div>
+                    <div class="detail-value">1,000+</div>
                 </div>
                 
                 <div class="detail-item">
                     <div class="detail-label">⚙️ My Role</div>
-                    <div class="detail-value">Creator & Lead Designer</div>
+                    <div class="detail-value">Full Ownership - Creator, Designer, Graphics, Audio, UI/UX</div>
                 </div>
                 
                 <div class="detail-item">
                     <div class="detail-label">🏆 Recognition</div>
                     <div class="detail-value">2025 Innovation Award</div>
+                </div>
+                
+                <!-- Featured Audio Section - Moved here -->
+                <div class="audio-showcase">
+                    <div class="audio-header">
+                        <h2>🎵 SHIFT Theme</h2>
+                        <p>Listen to the soundtrack</p>
+                    </div>
+                    
+                    <div class="audio-player-container">
+                        <div class="track-info">
+                            <div class="track-title">SHIFT Theme Song</div>
+                            <div class="track-artist">SHIFT Framework Soundtrack</div>
+                        </div>
+                        
+                        <div class="audio-controls">
+                            <button class="play-pause-btn" id="playPauseBtn">
+                                <svg id="playIcon" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <svg id="pauseIcon" style="display: none;" viewBox="0 0 24 24">
+                                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                                </svg>
+                            </button>
+                            
+                            <div class="progress-container">
+                                <div class="progress-bar" id="progressBar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                                <div class="time-display">
+                                    <span id="currentTime">0:00</span>
+                                    <span id="duration">0:00</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="volume-control">
+                            <svg class="volume-icon" id="volumeIcon" viewBox="0 0 24 24">
+                                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                            </svg>
+                            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+                        </div>
+                    </div>
+                    
+                    <!-- Hidden audio element -->
+                    <audio id="audioPlayer" preload="metadata">
+                        <source src="https://res.cloudinary.com/dwfzc3ygn/video/upload/v1756646871/Engine_rumble_steady_beat_Remix_sf0hed.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
             </div>
         </div>
