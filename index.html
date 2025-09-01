@@ -379,22 +379,38 @@
             grid-auto-rows: minmax(420px, auto);
         }
         
+        /* Base portfolio item styling */
         .portfolio-item {
             background: white;
             border-radius: 25px;
             overflow: hidden;
             position: relative;
             transition: all 0.4s ease;
-            cursor: pointer;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
             text-decoration: none;
         }
         
-        .portfolio-item:hover {
+        /* Clickable portfolio items */
+        .portfolio-item.clickable {
+            cursor: pointer;
+        }
+        
+        .portfolio-item.clickable:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 50px rgba(102, 126, 234, 0.25);
+        }
+        
+        /* Non-clickable portfolio items */
+        .portfolio-item.non-clickable {
+            cursor: default !important;
+            pointer-events: none;
+        }
+        
+        .portfolio-item.non-clickable:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
         
         .portfolio-item.featured {
@@ -421,13 +437,14 @@
             transition: all 0.4s ease;
         }
         
-        .portfolio-item:hover .portfolio-thumbnail img {
+        .portfolio-item.clickable:hover .portfolio-thumbnail img {
             transform: scale(1.1);
         }
         
         .portfolio-thumbnail iframe {
             width: 100%;
             height: 100%;
+            pointer-events: auto;
         }
         
         /* Holographic play button */
@@ -842,7 +859,7 @@
         </div>
     </section>
 
-    <!-- Portfolio Section - MOVED TO TOP -->
+    <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="section-header">
             <span class="section-tag">Portfolio</span>
@@ -853,8 +870,8 @@
         </div>
         
         <div class="portfolio-grid">
-            <!-- Escape Room -->
-            <a href="project-escape-room.html" class="portfolio-item">
+            <!-- Escape Room - CLICKABLE -->
+            <a href="project-escape-room.html" class="portfolio-item clickable">
                 <div class="portfolio-thumbnail">
                     <iframe src="https://www.youtube.com/embed/jLOUDu5gbuE" frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -869,8 +886,8 @@
                 </div>
             </a>
             
-            <!-- AI SHIFT Coach -->
-            <div class="portfolio-item">
+            <!-- AI SHIFT Coach - NON-CLICKABLE -->
+            <div class="portfolio-item non-clickable">
                 <div class="portfolio-thumbnail">
                     <iframe src="https://www.youtube.com/embed/whBBpiFwhzI" frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -885,8 +902,8 @@
                 </div>
             </div>
             
-            <!-- Immersive Capstone -->
-            <a href="project-capstone.html" class="portfolio-item">
+            <!-- Immersive Capstone - NON-CLICKABLE -->
+            <div class="portfolio-item non-clickable">
                 <div class="portfolio-thumbnail">
                     <iframe src="https://www.youtube.com/embed/n-fibvg80Vo" frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -899,10 +916,10 @@
                         <span class="tag">Simulation</span>
                     </div>
                 </div>
-            </a>
+            </div>
             
-            <!-- SHIFT Cards -->
-            <a href="project-shift.html" class="portfolio-item">
+            <!-- SHIFT Cards - CLICKABLE -->
+            <a href="project-shift.html" class="portfolio-item clickable">
                 <div class="portfolio-thumbnail">
                     <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756586510/SHIFTPORTFOLIO_u4tayj.png" alt="SHIFT Cards">
                 </div>
@@ -917,8 +934,8 @@
                 </div>
             </a>
             
-            <!-- Training Analytics -->
-            <div class="portfolio-item">
+            <!-- Training Analytics - NON-CLICKABLE -->
+            <div class="portfolio-item non-clickable">
                 <div class="portfolio-thumbnail">
                     <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756661609/LEaderboard_vkyipg.png" alt="Analytics Dashboard">
                 </div>
@@ -933,8 +950,8 @@
                 </div>
             </div>
             
-            <!-- Multi-Tool eLearning -->
-            <div class="portfolio-item">
+            <!-- Multi-Tool eLearning - NON-CLICKABLE -->
+            <div class="portfolio-item non-clickable">
                 <div class="portfolio-thumbnail">
                     <iframe src="https://www.youtube.com/embed/LU9fABfzvrU" frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -949,8 +966,8 @@
                 </div>
             </div>
             
-            <!-- Grumpy Cat App -->
-            <a href="https://apps.apple.com/us/app/grumpy-cat-stickers/id1146651658" target="_blank" class="portfolio-item">
+            <!-- Grumpy Cat App - CLICKABLE -->
+            <a href="https://apps.apple.com/us/app/grumpy-cat-stickers/id1146651658" target="_blank" class="portfolio-item clickable">
                 <div class="portfolio-thumbnail">
                     <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756585609/GrumpyKatWebsite_x1xqzq.png" alt="Grumpy Cat Stickers">
                 </div>
@@ -965,14 +982,14 @@
                 </div>
             </a>
             
-            <!-- LeaderGrid -->
-            <div class="portfolio-item">
+            <!-- LeaderGrid - NON-CLICKABLE -->
+            <div class="portfolio-item non-clickable">
                 <div class="portfolio-thumbnail">
                     <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756660214/Leadrgridexample_vtuy1i.png" alt="LeaderGrid">
                 </div>
                 <div class="portfolio-content">
-                    <h3>LeaderGrid Assessment Tool</h3>
-                    <p>Innovative leadership assessment and development platform with gamification elements for team engagement.</p>
+                    <h3>LeaderGrid VILT and F2F Training tool</h3>
+                    <p>Innovative leadership assessment and development platform with gamification elements for team engagement and measurement of success.</p>
                     <div class="portfolio-tags">
                         <span class="tag">Leadership</span>
                         <span class="tag">Assessment</span>
@@ -981,8 +998,8 @@
                 </div>
             </div>
             
-            <!-- Virtual ILT -->
-            <div class="portfolio-item">
+            <!-- Virtual ILT - NON-CLICKABLE -->
+            <div class="portfolio-item non-clickable">
                 <div class="portfolio-thumbnail">
                     <iframe src="https://www.youtube.com/embed/_w-6M7rRn0w" frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -997,24 +1014,24 @@
                 </div>
             </div>
             
-            <!-- Content Studio -->
-            <a href="project-studio.html" class="portfolio-item">
+            <!-- Content Studio - CLICKABLE -->
+            <a href="project-studio.html" class="portfolio-item clickable">
                 <div class="portfolio-thumbnail">
                     <iframe src="https://www.youtube.com/embed/fwd4XbZJlic" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="portfolio-content">
-                    <h3>Professional Content Studio</h3>
-                    <p>Custom-built production setup for high-quality educational video creation and virtual training delivery.</p>
+                    <h3>Experiential Photo Studio</h3>
+                    <p>Experiential Photo Studio with photo lessons for students and seniors. Custom built from my imagination to assist with community outreach and Photography lessons.</p>
                     <div class="portfolio-tags">
-                        <span class="tag">Video Production</span>
-                        <span class="tag">Studio Setup</span>
-                        <span class="tag">Content Creation</span>
+                        <span class="tag">Photography</span>
+                        <span class="tag">Community Outreach</span>
+                        <span class="tag">Education</span>
                     </div>
                 </div>
             </a>
             
-            <!-- Experiential Learning -->
-            <a href="project-experiential.html" class="portfolio-item">
+            <!-- Experiential Learning - NON-CLICKABLE -->
+            <div class="portfolio-item non-clickable">
                 <div class="portfolio-thumbnail">
                     <iframe src="https://www.youtube.com/embed/Gvwn2hJhLzM" frameborder="0" allowfullscreen></iframe>
                 </div>
@@ -1027,10 +1044,10 @@
                         <span class="tag">Experiential</span>
                     </div>
                 </div>
-            </a>
+            </div>
             
-            <!-- Director's Cut -->
-            <a href="https://www.flipsnack.com/paylocitycom/extradegree/full-view.html" target="_blank" class="portfolio-item">
+            <!-- Director's Cut - CLICKABLE -->
+            <a href="https://www.flipsnack.com/paylocitycom/extradegree/full-view.html" target="_blank" class="portfolio-item clickable">
                 <div class="portfolio-thumbnail">
                     <img src="https://res.cloudinary.com/dwfzc3ygn/image/upload/v1756661327/Directors_fi5h7w.png" alt="Directors Cut">
                 </div>
@@ -1069,7 +1086,7 @@
         </div>
     </section>
 
-    <!-- About Section - MOVED TO BOTTOM -->
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="section-header">
             <span class="section-tag">About Me</span>
